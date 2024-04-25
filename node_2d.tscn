@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://drr0gpsfr4ibw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dt6s3"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+position = Vector2(510.756, 184.5)
+scale = Vector2(72.535, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(423.755, 184.5)
+scale = Vector2(71.511, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D3" type="MeshInstance2D" parent="."]
+position = Vector2(425.511, 274)
+scale = Vector2(71.511, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D4" type="MeshInstance2D" parent="."]
+position = Vector2(510.755, 275.5)
+scale = Vector2(71.511, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D5" type="MeshInstance2D" parent="."]
+position = Vector2(598.755, 184.5)
+scale = Vector2(71.511, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D6" type="MeshInstance2D" parent="."]
+position = Vector2(599.755, 274.5)
+scale = Vector2(71.511, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D7" type="MeshInstance2D" parent="."]
+position = Vector2(425.511, 365)
+scale = Vector2(71.511, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D8" type="MeshInstance2D" parent="."]
+position = Vector2(512.755, 365.5)
+scale = Vector2(71.511, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D9" type="MeshInstance2D" parent="."]
+position = Vector2(600.755, 365.5)
+scale = Vector2(71.511, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D10" type="MeshInstance2D" parent="."]
+position = Vector2(470.622, 454)
+scale = Vector2(160.755, 75)
+mesh = SubResource("BoxMesh_dt6s3")
+
+[node name="MeshInstance2D11" type="MeshInstance2D" parent="."]
+position = Vector2(601, 453)
+scale = Vector2(71.511, 75)
+mesh = SubResource("BoxMesh_dt6s3")
