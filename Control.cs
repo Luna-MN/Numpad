@@ -4,6 +4,10 @@ using System.ComponentModel;
 
 public partial class Control : MeshInstance2D
 {
+	[Export]
+	public Key pressedKey;
+	[Export]
+	public MeshInstance2D obbi;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -13,19 +17,18 @@ public partial class Control : MeshInstance2D
 	public override void _Process(double delta)
 	{
 	}
-	public bool onKeyPress(Key button)
+	public void onKeyPress()
 	{
-			if(Input.IsKeyPressed(button)){
-				return true;
+			if(Input.IsKeyPressed(pressedKey)){
+				obbi.Visible = true;
 			}
-			return false;
+			else{
+				obbi.Visible = false;
+			}
 	}
 	public override void _Input(InputEvent @event){
 		if (@event is InputEventKey keyEvent && keyEvent.Pressed){
-			if(onKeyPress(Key.Kp0)){
-				
-			}
-
+			onKeyPress();
 		}
 	}
 }
