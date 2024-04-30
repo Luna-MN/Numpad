@@ -12,6 +12,7 @@ public partial class Random : Node
 	[Export]
     public ColorRect[] KeyRects;
 	public void RandomizeRects(){
+		GD.Print("Randomizing");
 		int ammount = GD.RandRange(1, 4);
 		tracker = ammount;
 		for (int i = 0; i < ammount; i++) {
@@ -25,12 +26,13 @@ public partial class Random : Node
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
-		foreach (int key in keys) {
-			KeyRects[key].Visible = true;
-		}
+
 		if(Generated == true){
 			RandomizeRects();
 			Generated = false;
+		}
+		foreach (int key in keys) {
+			KeyRects[key].Visible = true;
 		}
 	}
 }
