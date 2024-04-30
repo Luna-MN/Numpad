@@ -7,7 +7,7 @@ public partial class Random : Node
 {
 	List<int> keys = new List<int>();
 	private int key;
-	private bool Generated = false;
+	private bool Generated = true;
 	private int tracker;
 	[Export]
     public ColorRect[] KeyRects;
