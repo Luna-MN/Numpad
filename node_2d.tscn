@@ -12,7 +12,7 @@ material = SubResource("StandardMaterial3D_oftpu")
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("KeyRects")]
 script = ExtResource("1_3i6js")
-KeyRects = [NodePath("KP0"), NodePath("KP1"), NodePath("KP2"), NodePath("KP3"), NodePath("KP4"), NodePath("KP5"), NodePath("KP6"), NodePath("KP7"), NodePath("KP8"), NodePath("KP9"), NodePath("KPdot")]
+KeyRects = [NodePath("Kp0"), NodePath("Kp1"), NodePath("Kp2"), NodePath("Kp3"), NodePath("Kp4"), NodePath("Kp5"), NodePath("Kp6"), NodePath("Kp7"), NodePath("Kp8"), NodePath("Kp9"), NodePath("KpPeriod")]
 
 [node name="ColorRect11" type="ColorRect" parent="."]
 offset_left = 475.0
@@ -179,7 +179,7 @@ mesh = SubResource("BoxMesh_dt6s3")
 script = ExtResource("1_xfkup")
 pressedKey = 4194436
 
-[node name="KPdot" type="ColorRect" parent="."]
+[node name="KpPeriod" type="ColorRect" parent="."]
 visible = false
 offset_left = 585.0
 offset_top = 434.0
@@ -187,7 +187,7 @@ offset_right = 619.0
 offset_bottom = 469.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP0" type="ColorRect" parent="."]
+[node name="Kp0" type="ColorRect" parent="."]
 visible = false
 offset_left = 409.0
 offset_top = 436.0
@@ -195,7 +195,7 @@ offset_right = 525.0
 offset_bottom = 471.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP3" type="ColorRect" parent="."]
+[node name="Kp3" type="ColorRect" parent="."]
 visible = false
 offset_left = 585.0
 offset_top = 346.0
@@ -203,7 +203,7 @@ offset_right = 619.0
 offset_bottom = 381.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP4" type="ColorRect" parent="."]
+[node name="Kp4" type="ColorRect" parent="."]
 visible = false
 offset_left = 407.0
 offset_top = 255.0
@@ -211,7 +211,7 @@ offset_right = 441.0
 offset_bottom = 290.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP5" type="ColorRect" parent="."]
+[node name="Kp5" type="ColorRect" parent="."]
 visible = false
 offset_left = 495.0
 offset_top = 258.0
@@ -219,7 +219,7 @@ offset_right = 529.0
 offset_bottom = 293.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP6" type="ColorRect" parent="."]
+[node name="Kp6" type="ColorRect" parent="."]
 visible = false
 offset_left = 583.0
 offset_top = 256.0
@@ -227,7 +227,7 @@ offset_right = 617.0
 offset_bottom = 291.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP7" type="ColorRect" parent="."]
+[node name="Kp7" type="ColorRect" parent="."]
 visible = false
 offset_left = 405.0
 offset_top = 165.0
@@ -235,7 +235,7 @@ offset_right = 439.0
 offset_bottom = 200.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP8" type="ColorRect" parent="."]
+[node name="Kp8" type="ColorRect" parent="."]
 visible = false
 offset_left = 493.0
 offset_top = 165.0
@@ -243,7 +243,7 @@ offset_right = 527.0
 offset_bottom = 200.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP9" type="ColorRect" parent="."]
+[node name="Kp9" type="ColorRect" parent="."]
 visible = false
 offset_left = 583.0
 offset_top = 166.0
@@ -251,7 +251,7 @@ offset_right = 617.0
 offset_bottom = 201.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP1" type="ColorRect" parent="."]
+[node name="Kp1" type="ColorRect" parent="."]
 visible = false
 offset_left = 410.0
 offset_top = 347.0
@@ -259,7 +259,7 @@ offset_right = 443.0
 offset_bottom = 382.0
 color = Color(0.47451, 1, 1, 1)
 
-[node name="KP2" type="ColorRect" parent="."]
+[node name="Kp2" type="ColorRect" parent="."]
 visible = false
 offset_left = 497.0
 offset_top = 348.0

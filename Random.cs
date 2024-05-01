@@ -9,6 +9,7 @@ public partial class Random : Node
 	private int key;
 	private bool Generated = true;
 	private int tracker;
+	private List<string> KeyNames = new List<string>();
 	[Export]
     public ColorRect[] KeyRects;
 	public void RandomizeRects(){
@@ -23,7 +24,9 @@ public partial class Random : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-
+		foreach (ColorRect rect in KeyRects) {
+			KeyNames.Add(rect.Name);
+		}	
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,6 +38,30 @@ public partial class Random : Node
 		}
 		foreach (int key in keys) {
 			KeyRects[key].Visible = true;
+		}
+		if (tracker == 0) {
+			Generated = true;
+		}
+	}
+	public override void _Input(InputEvent @event)
+	{
+		if (@event is InputEventKey eventKey)
+		{
+			GD.Print(eventKey.Keycode.ToString());
+
+			if (KeyNames.Contains(eventKey.Keycode.ToString()))
+			{
+				if (keys.Contains(KeyNames.IndexOf(eventKey.Keycode.ToString())))
+				{
+					KeyRects[KeyNames.IndexOf(eventKey.Keycode.ToString())].Visible = false;
+					keys.Remove(KeyNames.IndexOf(eventKey.Keycode.ToString()));
+					tracker--;
+				}
+				else
+				{
+					GD.Print("Wrong key");
+				}
+			}
 		}
 	}
 }
