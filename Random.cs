@@ -12,16 +12,18 @@ public partial class Random : Node
 	[Export]
     public ColorRect[] KeyRects;
 	public void RandomizeRects(){
-		GD.Print("Randomizing");
 		int ammount = GD.RandRange(1, 4);
 		tracker = ammount;
 		for (int i = 0; i < ammount; i++) {
 			key = GD.RandRange(0, 10);
+			keys.Add(key);
 		}
+		GD.Print("Randomizing");
 	}
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
