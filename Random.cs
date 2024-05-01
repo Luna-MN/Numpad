@@ -45,14 +45,9 @@ public partial class Random : Node
 	}
 	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventKey eventKey)
-		{
-			GD.Print(eventKey.Keycode.ToString());
-
-			if (KeyNames.Contains(eventKey.Keycode.ToString()))
-			{
-				if (keys.Contains(KeyNames.IndexOf(eventKey.Keycode.ToString())))
-				{
+		if (@event is InputEventKey eventKey) {
+			if (KeyNames.Contains(eventKey.Keycode.ToString())) {
+				if (keys.Contains(KeyNames.IndexOf(eventKey.Keycode.ToString()))) {
 					KeyRects[KeyNames.IndexOf(eventKey.Keycode.ToString())].Visible = false;
 					keys.Remove(KeyNames.IndexOf(eventKey.Keycode.ToString()));
 					tracker--;
