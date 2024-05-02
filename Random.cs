@@ -48,8 +48,8 @@ public partial class Random : Node
 	}
 	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventKey eventKey) {
-			if (KeyNames.Contains(eventKey.Keycode.ToString())) {
+		if (@event is InputEventKey eventKey && KeyPressed == false) {
+			if (KeyNames.Contains(eventKey.Keycode.ToString()) ) {
 				if (keys.Contains(KeyNames.IndexOf(eventKey.Keycode.ToString()))) {
 					KeyRects[KeyNames.IndexOf(eventKey.Keycode.ToString())].Visible = false;
 					keys.Remove(KeyNames.IndexOf(eventKey.Keycode.ToString()));
@@ -64,5 +64,9 @@ public partial class Random : Node
 			}
 			KeyPressed = true;
 		}
+		else if (@event is InputEventKey)
+    	{
+        	KeyPressed = false;
+    	}
 	}
 }
