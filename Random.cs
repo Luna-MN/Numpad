@@ -75,6 +75,9 @@ public partial class Random : Node
 		// check if the timer has stopped or if the player has no lifes left if so game over
 		if(timer.IsStopped() || lifes == 0){
 			GD.Print("Game Over");
+			GD.Print("Score: " + score);
+			GD.Print("Lifes: " + lifes);
+			GD.Print("Time: " + (float)Math.Round(timer.TimeLeft, 2));
 			GetTree().Quit();
 		}
 		text.Text = "Score: " + score + "\nLifes: " + lifes + "\nTime: " + (float)Math.Round(timer.TimeLeft, 2);
