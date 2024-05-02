@@ -12,6 +12,9 @@ public partial class Random : Node
 	private List<string> eventKeyTracker = new List<string>();
 	[Export]
     public ColorRect[] KeyRects;
+	[Export]
+	public TextEdit text;
+	private Timer timer;	
 	public void RandomizeRects(){
 		int ammount = GD.RandRange(1, 4);
 		tracker = ammount;
@@ -36,6 +39,35 @@ public partial class Random : Node
 			score++;
 			GD.Print("Score: " + score);
 			RandomizeRects();
+			timer = new Timer{
+				Autostart = true,
+				OneShot = true
+			};
+			if(score < 10){
+				timer.WaitTime = 5;
+				timer.Start();
+			}
+			else if(score >= 10 && score < 20){
+				timer.WaitTime = 4;
+				timer.Start();
+			}
+			else if(score >= 20 && score < 30){
+				timer.WaitTime = 3;
+				timer.Start();
+			}
+			else if(score >= 30 && score < 40){
+				timer.WaitTime = 2;
+				timer.Start();
+			}
+			else if(score >= 40 && score < 50){
+				timer.WaitTime = 1;
+				timer.Start();
+			}
+			else if(score >= 50){
+				timer.WaitTime = 0.5f;
+				timer.Start();
+			}
+			AddChild(timer);
 			Generated = false;
 		}
 		foreach (int key in keys) {
@@ -45,10 +77,16 @@ public partial class Random : Node
 			eventKeyTracker.Clear();
 			Generated = true;
 		}
+		if(timer.IsStopped()){
+			GD.Print("Game Over");
+			GetTree().Quit();
+		}
 		if (lifes == 0) {
 			GD.Print("Game Over");
 			GetTree().Quit();
 		}
+		GD.Print(timer.TimeLeft);
+		text.Text = "Score: " + score + "\nLifes: " + lifes + "\nTime: " + (float)Math.Round(timer.TimeLeft, 2);
 	}
 	public override void _Input(InputEvent @event)
 	{
