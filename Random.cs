@@ -33,6 +33,8 @@ public partial class Random : Node
 	public override void _Process(double delta) {
 
 		if(Generated == true && KeyPressed == false){
+			score++;
+			GD.Print("Score: " + score);
 			RandomizeRects();
 			Generated = false;
 		}
