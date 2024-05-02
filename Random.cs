@@ -57,8 +57,9 @@ public partial class Random : Node
                 OneShot = true,
                 WaitTime = (float)Math.Max(baseWaitTime - (double)Math.Floor((double)score / baseScore), 0.5)
             };
-            timer.Start();
-			AddChild(timer);
+            AddChild(timer);
+			timer.Start();
+
 			// set generated to false so this doesn't run again
 			Generated = false;
 		}
