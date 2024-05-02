@@ -9,6 +9,7 @@ public partial class Random : Node
 	private int key, tracker, lifes = 3, score = 0;
 	private bool Generated = true, KeyPressed = false;
 	private List<string> KeyNames = new List<string>();
+	private List<string> eventKeyTracker = new List<string>();
 	[Export]
     public ColorRect[] KeyRects;
 	public void RandomizeRects(){
@@ -39,6 +40,7 @@ public partial class Random : Node
 			KeyRects[key].Visible = true;
 		}
 		if (tracker == 0) {
+			eventKeyTracker.Clear();
 			Generated = true;
 		}
 		if (lifes == 0) {
@@ -48,25 +50,27 @@ public partial class Random : Node
 	}
 	public override void _Input(InputEvent @event)
 	{
-		if (@event is InputEventKey eventKey && KeyPressed == false) {
-			if (KeyNames.Contains(eventKey.Keycode.ToString()) ) {
+		if (@event is InputEventKey eventKey) {
+			if (KeyNames.Contains(eventKey.Keycode.ToString()) && eventKey.Pressed) {
 				if (keys.Contains(KeyNames.IndexOf(eventKey.Keycode.ToString()))) {
 					KeyRects[KeyNames.IndexOf(eventKey.Keycode.ToString())].Visible = false;
+					eventKeyTracker.Add(eventKey.Keycode.ToString());
 					keys.Remove(KeyNames.IndexOf(eventKey.Keycode.ToString()));
+
 					tracker--;
 				}
-				else
-				{
+				else if(!eventKeyTracker.Contains(eventKey.Keycode.ToString())){							
 					GD.Print("Wrong key");
 					lifes--;
 					GD.Print("Lifes: " + lifes);
+					eventKeyTracker.Add(eventKey.Keycode.ToString());
 				}
+				KeyPressed = true;
 			}
-			KeyPressed = true;
+			else if (!eventKey.Pressed)
+        	{
+            	KeyPressed = false;
+        	}
 		}
-		else if (@event is InputEventKey)
-    	{
-        	KeyPressed = false;
-    	}
 	}
 }
