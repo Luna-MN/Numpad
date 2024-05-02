@@ -6,9 +6,8 @@ using System.Collections.Generic;
 public partial class Random : Node
 {
 	List<int> keys = new List<int>();
-	private int key;
-	private bool Generated = true;
-	private int tracker;
+	private int key, tracker, lifes = 3, score = 0;
+	private bool Generated = true, KeyPressed = false;
 	private List<string> KeyNames = new List<string>();
 	[Export]
     public ColorRect[] KeyRects;
@@ -32,7 +31,7 @@ public partial class Random : Node
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta) {
 
-		if(Generated == true){
+		if(Generated == true && KeyPressed == false){
 			RandomizeRects();
 			Generated = false;
 		}
@@ -41,6 +40,10 @@ public partial class Random : Node
 		}
 		if (tracker == 0) {
 			Generated = true;
+		}
+		if (lifes == 0) {
+			GD.Print("Game Over");
+			GetTree().Quit();
 		}
 	}
 	public override void _Input(InputEvent @event)
@@ -55,8 +58,11 @@ public partial class Random : Node
 				else
 				{
 					GD.Print("Wrong key");
+					lifes--;
+					GD.Print("Lifes: " + lifes);
 				}
 			}
+			KeyPressed = true;
 		}
 	}
 }
